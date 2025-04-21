@@ -1,0 +1,554 @@
+2025-04-16 14:01:38 - INFO - 從配置文件讀取設置：top_k=3, score_threshold=0.86
+2025-04-16 14:01:38 - INFO - Azure OpenAI 配置：endpoint=https://test-oss-qaai-dify.openai.azure.com/, model=test-gpt, version=2024-08-01-preview
+2025-04-16 14:01:38 - INFO - 開始初始化嵌入向量，目錄：./embedding_store\常見問答_result
+2025-04-16 14:01:38 - INFO - 已經計算過節點嵌入向量，直接載入索引...
+2025-04-16 14:01:38 - INFO - 成功載入 369 個文本段落
+2025-04-16 14:01:38 - INFO - 初始化嵌入向量完成
+2025-04-16 14:01:38 - INFO - 初始化問候語辨識系統
+2025-04-16 14:01:38 - INFO - 問候語辨識系統初始化完成
+2025-04-16 14:01:38 - INFO - Serving on http://0.0.0.0:5000
+2025-04-16 14:01:52 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:01:59 - INFO - 處理RAG查詢：你好
+2025-04-16 14:01:59 - INFO - 處理查詢：你好
+2025-04-16 14:02:00 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:02:00 - INFO - 查詢與整個文件相關性 (餘弦相似度)：0.7893
+2025-04-16 14:02:00 - INFO - 與查詢最相關的3個段落，查詢時間：1094.00ms
+2025-04-16 14:02:00 - INFO - 查詢處理完成，找到 0 個相關片段
+2025-04-16 14:02:01 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:02:01 - INFO - 檢測到問候語（相似度：0.9018）
+2025-04-16 14:02:01 - INFO - 檢測到問候語，回覆問候
+2025-04-16 14:02:01 - INFO - 查詢處理完成
+2025-04-16 14:02:22 - INFO - 處理RAG查詢：如果我在冒險島找到一個公司登記的寶藏，該如何向經濟部報告？
+2025-04-16 14:02:22 - INFO - 處理查詢：如果我在冒險島找到一個公司登記的寶藏，該如何向經濟部報告？
+2025-04-16 14:02:23 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:02:23 - INFO - 查詢與整個文件相關性 (餘弦相似度)：0.8620
+2025-04-16 14:02:23 - INFO - 與查詢最相關的3個段落，查詢時間：969.00ms
+2025-04-16 14:02:23 - INFO - 查詢處理完成，找到 0 個相關片段
+2025-04-16 14:02:23 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:02:23 - WARNING - 未找到相關上下文，返回默認回覆
+2025-04-16 14:02:23 - INFO - 查詢處理完成
+2025-04-16 14:02:39 - INFO - 處理RAG查詢：科學園區管理局在公司登記方面的功能是什麼？
+2025-04-16 14:02:39 - INFO - 處理查詢：科學園區管理局在公司登記方面的功能是什麼？
+2025-04-16 14:02:40 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:02:40 - INFO - 查詢與整個文件相關性 (餘弦相似度)：0.8670
+2025-04-16 14:02:40 - INFO - 與查詢最相關的3個段落，查詢時間：906.00ms
+2025-04-16 14:02:40 - INFO - 查詢處理完成，找到 1 個相關片段
+2025-04-16 14:02:40 - INFO - 找到 1 個相關上下文
+2025-04-16 14:02:40 - INFO - 開始生成回應，上下文數量：1
+2025-04-16 14:02:40 - INFO - 開始調用 Azure OpenAI API
+2025-04-16 14:02:47 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/test-gpt/chat/completions?api-version=2024-08-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:02:47 - INFO - 成功生成回應
+2025-04-16 14:02:47 - INFO - 查詢處理完成
+2025-04-16 14:07:18 - INFO - 從配置文件讀取設置：top_k=3, score_threshold=0.86
+2025-04-16 14:07:18 - INFO - Azure OpenAI 配置：endpoint=https://test-oss-qaai-dify.openai.azure.com/, model=test-gpt, version=2024-08-01-preview
+2025-04-16 14:07:18 - INFO - 開始初始化嵌入向量，目錄：./embedding_store\常見問答_result
+2025-04-16 14:07:18 - INFO - 已經計算過節點嵌入向量，直接載入索引...
+2025-04-16 14:07:18 - INFO - 成功載入 369 個文本段落
+2025-04-16 14:07:18 - INFO - 初始化嵌入向量完成
+2025-04-16 14:07:18 - INFO - 初始化問候語辨識系統
+2025-04-16 14:07:18 - INFO - 問候語辨識系統初始化完成
+2025-04-16 14:07:18 - INFO - Serving on http://0.0.0.0:5000
+2025-04-16 14:07:37 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:07:53 - INFO - 開始計算文件嵌入向量：./data\常見問答_result2.txt
+2025-04-16 14:07:53 - INFO - 創建持久化目錄：./embedding_store\常見問答_result2
+2025-04-16 14:07:53 - INFO - 成功讀取文件：./data\常見問答_result2.txt
+2025-04-16 14:07:53 - INFO - 開始處理原始文本...
+2025-04-16 14:07:53 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:08:04 - INFO - 切割後共取得 41 段
+2025-04-16 14:08:06 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:06 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:06 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:06 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:07 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:07 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:07 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:07 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:08 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:08 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:08 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:08 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:09 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:09 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:09 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:09 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:10 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:10 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:10 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:11 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:11 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:11 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:11 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:12 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:12 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:12 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:12 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:13 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:13 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:13 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:14 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:14 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:14 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:15 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:15 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:15 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:15 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:16 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:16 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:16 - INFO - 已保存 41 個文本段落
+2025-04-16 14:08:16 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:08:17 - INFO - 索引已儲存至：./embedding_store\常見問答_result2，索引ID：d79da0fc-3936-4ed6-aff3-dc70621f2416
+2025-04-16 14:08:17 - INFO - 所有段落嵌入計算完成，已計算平均嵌入向量並正規化。
+2025-04-16 14:11:22 - INFO - 嘗試刪除文件：./data/常見問答_result2.txt
+2025-04-16 14:11:22 - INFO - 成功刪除文件：./data/常見問答_result2.txt
+2025-04-16 14:11:22 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:12:40 - INFO - 從配置文件讀取設置：top_k=3, score_threshold=0.86
+2025-04-16 14:12:40 - INFO - Azure OpenAI 配置：endpoint=https://test-oss-qaai-dify.openai.azure.com/, model=test-gpt, version=2024-08-01-preview
+2025-04-16 14:12:41 - INFO - 開始初始化嵌入向量，目錄：./embedding_store\常見問答_result
+2025-04-16 14:12:41 - INFO - 已經計算過節點嵌入向量，直接載入索引...
+2025-04-16 14:12:41 - INFO - 成功載入 369 個文本段落
+2025-04-16 14:12:41 - INFO - 初始化嵌入向量完成
+2025-04-16 14:12:41 - INFO - 初始化問候語辨識系統
+2025-04-16 14:12:41 - INFO - 問候語辨識系統初始化完成
+2025-04-16 14:12:41 - INFO - Serving on http://0.0.0.0:5000
+2025-04-16 14:12:41 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:12:49 - INFO - 開始計算文件嵌入向量：./data\常見問答_result2.txt
+2025-04-16 14:12:49 - INFO - 創建持久化目錄：./embedding_store\常見問答_result2
+2025-04-16 14:12:49 - INFO - 成功讀取文件：./data\常見問答_result2.txt
+2025-04-16 14:12:49 - INFO - 開始處理原始文本...
+2025-04-16 14:12:49 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:12:58 - INFO - 切割後共取得 41 段
+2025-04-16 14:12:59 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:12:59 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:12:59 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:12:59 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:00 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:00 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:00 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:00 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:01 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:01 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:01 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:01 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:02 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:02 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:02 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:03 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:03 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:03 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:03 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:04 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:04 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:04 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:04 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:05 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:05 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:05 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:05 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:06 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:06 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:06 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:06 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:07 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:07 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:07 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:08 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:08 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:08 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:09 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:09 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:09 - INFO - 已保存 41 個文本段落
+2025-04-16 14:13:09 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:13:10 - INFO - 索引已儲存至：./embedding_store\常見問答_result2，索引ID：6f856476-350b-4508-8c9a-d8537b1fbc55
+2025-04-16 14:13:10 - INFO - 所有段落嵌入計算完成，已計算平均嵌入向量並正規化。
+2025-04-16 14:20:35 - INFO - 從配置文件讀取設置：top_k=3, score_threshold=0.86
+2025-04-16 14:20:35 - INFO - Azure OpenAI 配置：endpoint=https://test-oss-qaai-dify.openai.azure.com/, model=test-gpt, version=2024-08-01-preview
+2025-04-16 14:20:36 - INFO - 開始初始化嵌入向量，目錄：./embedding_store\常見問答_result
+2025-04-16 14:20:36 - INFO - 已經計算過節點嵌入向量，直接載入索引...
+2025-04-16 14:20:36 - INFO - 成功載入 369 個文本段落
+2025-04-16 14:20:36 - INFO - 初始化嵌入向量完成
+2025-04-16 14:20:36 - INFO - 初始化問候語辨識系統
+2025-04-16 14:20:36 - INFO - 問候語辨識系統初始化完成
+2025-04-16 14:20:36 - INFO - Serving on http://0.0.0.0:5000
+2025-04-16 14:21:06 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:21:09 - INFO - 嘗試刪除文件：./data/常見問答_result2.txt
+2025-04-16 14:21:09 - INFO - 成功刪除文件：./data/常見問答_result2.txt
+2025-04-16 14:21:09 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:21:22 - INFO - 開始計算文件嵌入向量：./data\常見問答_result2.txt
+2025-04-16 14:21:22 - INFO - 創建持久化目錄：./embedding_store\常見問答_result2
+2025-04-16 14:21:22 - INFO - 成功讀取文件：./data\常見問答_result2.txt
+2025-04-16 14:21:22 - INFO - 開始處理原始文本...
+2025-04-16 14:21:22 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:21:34 - INFO - 切割後共取得 41 段
+2025-04-16 14:21:35 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:35 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:36 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:36 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:36 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:36 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:37 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:37 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:37 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:38 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:38 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:38 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:38 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:39 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:39 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:39 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:40 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:40 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:40 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:40 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:41 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:41 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:41 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:42 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:42 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:42 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:42 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:43 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:43 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:43 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:44 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:44 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:44 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:44 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:45 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:45 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:45 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:45 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:46 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:46 - INFO - 已保存 41 個文本段落
+2025-04-16 14:21:46 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:21:46 - INFO - 索引已儲存至：./embedding_store\常見問答_result2，索引ID：b7b49670-cb32-455c-b347-4de0bfddc8e1
+2025-04-16 14:21:47 - INFO - 所有段落嵌入計算完成，已計算平均嵌入向量並正規化。
+2025-04-16 14:22:38 - INFO - 嘗試刪除文件：./data/常見問答_result2.txt
+2025-04-16 14:22:38 - INFO - 成功刪除文件：./data/常見問答_result2.txt
+2025-04-16 14:22:38 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:22:44 - INFO - 開始計算文件嵌入向量：./data\常見問答_result2.txt
+2025-04-16 14:22:44 - INFO - 創建持久化目錄：./embedding_store\常見問答_result2
+2025-04-16 14:22:44 - INFO - 成功讀取文件：./data\常見問答_result2.txt
+2025-04-16 14:22:44 - INFO - 開始處理原始文本...
+2025-04-16 14:22:44 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:22:44 - INFO - 切割後共取得 41 段
+2025-04-16 14:22:45 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:45 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:45 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:46 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:46 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:46 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:46 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:47 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:47 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:47 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:47 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:48 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:48 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:48 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:48 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:49 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:49 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:49 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:49 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:50 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:50 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:50 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:50 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:51 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:51 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:51 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:51 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:52 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:52 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:53 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:53 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:53 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:53 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:54 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:54 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:54 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:54 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:55 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:55 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:55 - INFO - 已保存 41 個文本段落
+2025-04-16 14:22:55 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:22:55 - INFO - 索引已儲存至：./embedding_store\常見問答_result2，索引ID：ad825216-fd2d-4d8e-b2e2-d246449cef57
+2025-04-16 14:22:55 - INFO - 所有段落嵌入計算完成，已計算平均嵌入向量並正規化。
+2025-04-16 14:24:51 - INFO - 嘗試刪除文件：./data/常見問答_result2.txt
+2025-04-16 14:24:51 - INFO - 成功刪除文件：./data/常見問答_result2.txt
+2025-04-16 14:24:51 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:24:54 - INFO - 開始計算文件嵌入向量：./data\常見問答_result2.txt
+2025-04-16 14:24:54 - INFO - 創建持久化目錄：./embedding_store\常見問答_result2
+2025-04-16 14:24:54 - INFO - 成功讀取文件：./data\常見問答_result2.txt
+2025-04-16 14:24:54 - INFO - 開始處理原始文本...
+2025-04-16 14:24:54 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:24:54 - INFO - 切割後共取得 41 段
+2025-04-16 14:24:55 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:24:56 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:24:56 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:24:56 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:24:56 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:24:57 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:24:57 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:24:57 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:24:57 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:24:58 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:24:58 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:24:58 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:24:58 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:24:59 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:24:59 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:24:59 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:24:59 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:00 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:00 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:00 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:00 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:01 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:01 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:01 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:02 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:02 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:02 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:02 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:03 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:03 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:03 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:03 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:04 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:04 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:04 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:06 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:06 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:07 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:07 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:07 - INFO - 已保存 41 個文本段落
+2025-04-16 14:25:07 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:25:07 - INFO - 索引已儲存至：./embedding_store\常見問答_result2，索引ID：f54638a2-6530-4b4e-a5ac-61453f3b463f
+2025-04-16 14:25:07 - INFO - 所有段落嵌入計算完成，已計算平均嵌入向量並正規化。
+2025-04-16 14:29:26 - INFO - 從配置文件讀取設置：top_k=3, score_threshold=0.86
+2025-04-16 14:29:26 - INFO - Azure OpenAI 配置：endpoint=https://test-oss-qaai-dify.openai.azure.com/, model=test-gpt, version=2024-08-01-preview
+2025-04-16 14:29:26 - INFO - 開始初始化嵌入向量，目錄：./embedding_store\常見問答_result
+2025-04-16 14:29:26 - INFO - 已經計算過節點嵌入向量，直接載入索引...
+2025-04-16 14:29:26 - INFO - 成功載入 369 個文本段落
+2025-04-16 14:29:26 - INFO - 初始化嵌入向量完成
+2025-04-16 14:29:26 - INFO - 初始化問候語辨識系統
+2025-04-16 14:29:26 - INFO - 問候語辨識系統初始化完成
+2025-04-16 14:29:26 - INFO - Serving on http://0.0.0.0:5000
+2025-04-16 14:29:34 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:29:37 - INFO - 嘗試刪除文件：./data/常見問答_result2.txt
+2025-04-16 14:29:37 - INFO - 成功刪除文件：./data/常見問答_result2.txt
+2025-04-16 14:29:37 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:29:43 - INFO - 開始計算文件嵌入向量：./data\常見問答_result2.txt
+2025-04-16 14:29:43 - INFO - 創建持久化目錄：./embedding_store\常見問答_result2
+2025-04-16 14:29:43 - INFO - 成功讀取文件：./data\常見問答_result2.txt
+2025-04-16 14:29:43 - INFO - 開始處理原始文本...
+2025-04-16 14:29:43 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:29:55 - INFO - 切割後共取得 41 段
+2025-04-16 14:29:56 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:29:56 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:29:56 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:29:56 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:29:57 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:29:57 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:29:57 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:29:57 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:29:58 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:29:58 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:29:58 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:29:59 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:29:59 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:29:59 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:29:59 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:00 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:00 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:00 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:00 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:01 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:01 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:01 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:01 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:02 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:02 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:02 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:02 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:03 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:03 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:03 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:03 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:04 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:04 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:05 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:05 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:05 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:05 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:06 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:06 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:06 - INFO - 已保存 41 個文本段落
+2025-04-16 14:30:06 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:30:07 - INFO - 索引已儲存至：./embedding_store\常見問答_result2，索引ID：9641514e-c7cf-49c0-9bdf-7cb5c606b405
+2025-04-16 14:30:07 - INFO - 所有段落嵌入計算完成，已計算平均嵌入向量並正規化。
+2025-04-16 14:34:43 - INFO - 從配置文件讀取設置：top_k=3, score_threshold=0.86
+2025-04-16 14:34:43 - INFO - Azure OpenAI 配置：endpoint=https://test-oss-qaai-dify.openai.azure.com/, model=test-gpt, version=2024-08-01-preview
+2025-04-16 14:34:44 - INFO - 開始初始化嵌入向量，目錄：./embedding_store\常見問答_result
+2025-04-16 14:34:44 - INFO - 已經計算過節點嵌入向量，直接載入索引...
+2025-04-16 14:34:44 - INFO - 成功載入 369 個文本段落
+2025-04-16 14:34:44 - INFO - 初始化嵌入向量完成
+2025-04-16 14:34:44 - INFO - 初始化問候語辨識系統
+2025-04-16 14:34:44 - INFO - 問候語辨識系統初始化完成
+2025-04-16 14:34:44 - INFO - Serving on http://0.0.0.0:5000
+2025-04-16 14:34:46 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:34:50 - INFO - 嘗試刪除文件：./data/常見問答_result2.txt
+2025-04-16 14:34:50 - INFO - 成功刪除文件：./data/常見問答_result2.txt
+2025-04-16 14:34:50 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:34:56 - INFO - 開始計算文件嵌入向量：./data\常見問答_result2.txt
+2025-04-16 14:34:56 - INFO - 創建持久化目錄：./embedding_store\常見問答_result2
+2025-04-16 14:34:56 - INFO - 成功讀取文件：./data\常見問答_result2.txt
+2025-04-16 14:34:56 - INFO - 開始處理原始文本...
+2025-04-16 14:34:56 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:35:08 - INFO - 切割後共取得 41 段
+2025-04-16 14:35:10 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:10 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:10 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:10 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:11 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:11 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:11 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:11 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:12 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:12 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:12 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:13 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:13 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:13 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:13 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:14 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:14 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:14 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:14 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:15 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:15 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:15 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:15 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:16 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:16 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:16 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:17 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:17 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:17 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:17 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:18 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:18 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:18 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:18 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:19 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:19 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:19 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:19 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:20 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:20 - INFO - 已保存 41 個文本段落
+2025-04-16 14:35:20 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:35:20 - INFO - 索引已儲存至：./embedding_store\常見問答_result2，索引ID：549bf035-78ba-4767-90c6-7b1cfcd0c2ef
+2025-04-16 14:35:20 - INFO - 所有段落嵌入計算完成，已計算平均嵌入向量並正規化。
+2025-04-16 14:37:05 - INFO - 從配置文件讀取設置：top_k=3, score_threshold=0.86
+2025-04-16 14:37:05 - INFO - Azure OpenAI 配置：endpoint=https://test-oss-qaai-dify.openai.azure.com/, model=test-gpt, version=2024-08-01-preview
+2025-04-16 14:37:06 - INFO - 開始初始化嵌入向量，目錄：./embedding_store\常見問答_result
+2025-04-16 14:37:06 - INFO - 已經計算過節點嵌入向量，直接載入索引...
+2025-04-16 14:37:06 - INFO - 成功載入 369 個文本段落
+2025-04-16 14:37:06 - INFO - 初始化嵌入向量完成
+2025-04-16 14:37:06 - INFO - 初始化問候語辨識系統
+2025-04-16 14:37:06 - INFO - 問候語辨識系統初始化完成
+2025-04-16 14:37:06 - INFO - Serving on http://0.0.0.0:5000
+2025-04-16 14:37:13 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:37:43 - INFO - 開始計算文件嵌入向量：./data\常見問答_result5.txt
+2025-04-16 14:37:43 - INFO - 創建持久化目錄：./embedding_store\常見問答_result5
+2025-04-16 14:37:43 - INFO - 成功讀取文件：./data\常見問答_result5.txt
+2025-04-16 14:37:43 - INFO - 開始處理原始文本...
+2025-04-16 14:37:43 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:37:50 - INFO - 嘗試刪除文件：./data/常見問答_result2.txt
+2025-04-16 14:37:50 - INFO - 成功刪除文件：./data/常見問答_result2.txt
+2025-04-16 14:37:50 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:37:53 - INFO - 切割後共取得 3 段
+2025-04-16 14:37:54 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:37:54 - INFO - 已保存 3 個文本段落
+2025-04-16 14:37:54 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:37:55 - INFO - 索引已儲存至：./embedding_store\常見問答_result5，索引ID：ea3d6ff5-164c-4109-a19a-77e22785be0b
+2025-04-16 14:37:55 - INFO - 所有段落嵌入計算完成，已計算平均嵌入向量並正規化。
+2025-04-16 14:55:02 - INFO - 從配置文件讀取設置：top_k=3, score_threshold=0.86
+2025-04-16 14:55:02 - INFO - Azure OpenAI 配置：endpoint=https://test-oss-qaai-dify.openai.azure.com/, model=test-gpt, version=2024-08-01-preview
+2025-04-16 14:55:03 - INFO - 開始初始化嵌入向量，目錄：./embedding_store\常見問答_result
+2025-04-16 14:55:03 - INFO - 已經計算過節點嵌入向量，直接載入索引...
+2025-04-16 14:55:03 - INFO - 成功載入 369 個文本段落
+2025-04-16 14:55:03 - INFO - 初始化嵌入向量完成
+2025-04-16 14:55:03 - INFO - 初始化問候語辨識系統
+2025-04-16 14:55:03 - INFO - 問候語辨識系統初始化完成
+2025-04-16 14:55:03 - INFO - Serving on http://0.0.0.0:5000
+2025-04-16 14:56:03 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:56:10 - INFO - 嘗試刪除文件：./data/常見問答_result5.txt
+2025-04-16 14:56:10 - INFO - 成功刪除文件：./data/常見問答_result5.txt
+2025-04-16 14:56:10 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 14:57:45 - INFO - 處理RAG查詢：你好
+2025-04-16 14:57:45 - INFO - 處理查詢：你好
+2025-04-16 14:57:46 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:57:46 - INFO - 查詢與整個文件相關性 (餘弦相似度)：0.7893
+2025-04-16 14:57:46 - INFO - 與查詢最相關的3個段落，查詢時間：1188.00ms
+2025-04-16 14:57:46 - INFO - 查詢處理完成，找到 0 個相關片段
+2025-04-16 14:57:46 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:57:46 - INFO - 檢測到問候語（相似度：0.9018）
+2025-04-16 14:57:46 - INFO - 檢測到問候語，回覆問候
+2025-04-16 14:57:46 - INFO - 查詢處理完成
+2025-04-16 14:57:50 - INFO - 處理RAG查詢：你好
+2025-04-16 14:57:50 - INFO - 處理查詢：你好
+2025-04-16 14:57:50 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:57:50 - INFO - 查詢與整個文件相關性 (餘弦相似度)：0.7893
+2025-04-16 14:57:50 - INFO - 與查詢最相關的3個段落，查詢時間：250.00ms
+2025-04-16 14:57:50 - INFO - 查詢處理完成，找到 0 個相關片段
+2025-04-16 14:57:51 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:57:51 - INFO - 檢測到問候語（相似度：0.9018）
+2025-04-16 14:57:51 - INFO - 檢測到問候語，回覆問候
+2025-04-16 14:57:51 - INFO - 查詢處理完成
+2025-04-16 14:57:55 - INFO - 處理RAG查詢：我是
+2025-04-16 14:57:55 - INFO - 處理查詢：我是
+2025-04-16 14:57:55 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:57:55 - INFO - 查詢與整個文件相關性 (餘弦相似度)：0.7918
+2025-04-16 14:57:55 - INFO - 與查詢最相關的3個段落，查詢時間：266.00ms
+2025-04-16 14:57:55 - INFO - 查詢處理完成，找到 0 個相關片段
+2025-04-16 14:57:56 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:57:56 - WARNING - 未找到相關上下文，返回默認回覆
+2025-04-16 14:57:56 - INFO - 查詢處理完成
+2025-04-16 14:59:37 - INFO - 處理RAG查詢：我是
+2025-04-16 14:59:37 - INFO - 處理查詢：我是
+2025-04-16 14:59:38 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:59:38 - INFO - 查詢與整個文件相關性 (餘弦相似度)：0.7918
+2025-04-16 14:59:38 - INFO - 與查詢最相關的3個段落，查詢時間：906.00ms
+2025-04-16 14:59:38 - INFO - 查詢處理完成，找到 0 個相關片段
+2025-04-16 14:59:38 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:59:38 - WARNING - 未找到相關上下文，返回默認回覆
+2025-04-16 14:59:38 - INFO - 查詢處理完成
+2025-04-16 14:59:43 - INFO - 處理RAG查詢：你好
+2025-04-16 14:59:43 - INFO - 處理查詢：你好
+2025-04-16 14:59:44 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:59:44 - INFO - 查詢與整個文件相關性 (餘弦相似度)：0.7893
+2025-04-16 14:59:44 - INFO - 與查詢最相關的3個段落，查詢時間：829.00ms
+2025-04-16 14:59:44 - INFO - 查詢處理完成，找到 0 個相關片段
+2025-04-16 14:59:44 - INFO - HTTP Request: POST https://test-oss-qaai-dify.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-04-16 14:59:44 - INFO - 檢測到問候語（相似度：0.9018）
+2025-04-16 14:59:44 - INFO - 檢測到問候語，回覆問候
+2025-04-16 14:59:44 - INFO - 查詢處理完成
+2025-04-16 15:38:02 - INFO - 從配置文件讀取設置：top_k=3, score_threshold=0.86
+2025-04-16 15:38:02 - INFO - Azure OpenAI 配置：endpoint=https://test-oss-qaai-dify.openai.azure.com/, model=test-gpt, version=2024-08-01-preview
+2025-04-16 15:38:02 - INFO - 開始初始化嵌入向量，目錄：./embedding_store\常見問答_result
+2025-04-16 15:38:02 - INFO - 已經計算過節點嵌入向量，直接載入索引...
+2025-04-16 15:38:02 - INFO - 成功載入 369 個文本段落
+2025-04-16 15:38:02 - INFO - 初始化嵌入向量完成
+2025-04-16 15:38:02 - INFO - 初始化問候語辨識系統
+2025-04-16 15:38:02 - INFO - 問候語辨識系統初始化完成
+2025-04-16 15:38:02 - INFO - Serving on http://0.0.0.0:5000
+2025-04-16 15:38:05 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 15:38:08 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 15:38:19 - INFO - 列出目錄 ./embedding_store 中的所有文件
+2025-04-16 15:38:30 - INFO - 設置 score_threshold 參數為：0.85
+2025-04-16 15:38:30 - INFO - 設置 top_k 參數為：2
+2025-04-16 15:38:30 - INFO - 成功更新 score_threshold 參數為：0.85
+2025-04-16 15:38:30 - INFO - 成功更新 top_k 參數為：2
+2025-04-16 15:38:40 - INFO - 列出目錄 ./embedding_store 中的所有文件

@@ -1,0 +1,9 @@
+flask==2.3.3
+werkzeug==2.3.7
+openai
+transformers==4.37.0
+numpy==1.26.0
+llama-index-core
+llama-index-embeddings-azure-openai
+waitress==2.1.2
+gunicorn==21.2.0 

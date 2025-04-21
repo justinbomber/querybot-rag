@@ -1,0 +1,74 @@
+/* 主要樣式已在index.html內定義 */
+/* 這裡放置額外的樣式 */
+body {
+    background-color: rgb(243, 236, 233);
+}
+
+.card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+/* 自定義滾動條 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(211, 100%, 50%);
+}
+
+/* 聚光燈效果樣式 */
+#spotlight-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 9999;
+    pointer-events: none; /* 允許點擊穿透 */
+}
+
+#spotlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle 200px at 50% 50%,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(0, 0, 0, 0.95) 70%,
+        #000 100%
+    );
+    will-change: transform, background-position;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+body.has-spotlight #spotlight-container {
+    display: block !important; /* 覆蓋行內樣式 */
+}
+
+body.has-spotlight #spotlight {
+    opacity: 1;
+} 

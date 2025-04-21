@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG問答系統</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <style>
+        body {
+            font-family: 'Roboto', 'Noto Sans TC', sans-serif;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .chat-container {
+            height: 400px;
+            overflow-y: auto;
+        }
+        .user-message {
+            background-color: #f1f0f0;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            text-align: right;
+        }
+        .bot-message {
+            background-color: #e3f2fd;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0,0,0,.3);
+            border-radius: 50%;
+            border-top-color: #000;
+            animation: spin 1s ease-in-out infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .token-item {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #dee2e6;
+        }
+        .file-item {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #dee2e6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .file-item.active {
+            background-color: #d1e7dd;
+            border-color: #a3cfbb;
+        }
+        .file-name {
+            font-weight: bold;
+            margin-right: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex-grow: 1;
+        }
+        .file-actions {
+            white-space: nowrap;
+        }
+        .token-text {
+            font-family: monospace;
+            word-break: break-all;
+        }
+        .token-date {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        .token-badge {
+            background-color: #17a2b8;
+            color: white;
+            padding: 3px 5px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+        }
+        .copy-btn {
+            cursor: pointer;
+            color: #0d6efd;
+        }
+        .copy-btn:hover {
+            text-decoration: underline;
+        }
+        /* 新增的拖放上傳區域的樣式 */
+        .upload-drop-area {
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            background-color: #f8f9fa;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+        .upload-drop-area.highlight {
+            border-color: #007bff;
+            background-color: #e9f7fe;
+        }
+        .upload-icon {
+            font-size: 24px;
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+        .upload-text {
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+        .file-types {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        /* 上傳文件項目樣式 */
+        .upload-file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: #fff;
+        }
+        .file-info {
+            display: flex;
+            align-items: center;
+        }
+        .file-icon {
+            color: #4285f4;
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        .file-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .file-name {
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 180px;
+        }
+        .file-meta {
+            font-size: 0.75rem;
+            color: #6c757d;
+        }
+        .delete-file-btn {
+            color: #dc3545;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 聚光燈效果元素（隱藏的） -->
+    <div id="spotlight-container" style="display: none;">
+        <div id="spotlight"></div>
+    </div>
+    
+    <div class="container mt-4">
+        <!-- 使用logo替換標題 -->
+        <img src="/static/pic/querybot_logo.png" alt="QueryBot Logo" class="img-fluid mb-4 d-block mx-auto" style="max-width: 300px;">
+        
+        <div class="row">
+            <!-- 左側：問答區 -->
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>問答對話</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="chat-container" class="chat-container mb-3"></div>
+                        <div class="input-group">
+                            <input type="text" id="query-input" class="form-control" placeholder="輸入您的問題...">
+                            <button id="send-btn" class="btn btn-primary">發送</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右側：設置和文件管理 -->
+            <div class="col-lg-4">
+                <!-- 文件上傳 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5>上傳文件</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="upload-form">
+                            <div class="mb-3">
+                                <div id="upload-drop-area" class="upload-drop-area">
+                                    <div class="upload-icon">
+                                        <i class="bi bi-cloud-arrow-up"></i>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cloud-arrow-up" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M7.646 5.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2z"/>
+                                            <path d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="upload-text">拖拉檔案至此，或者 <span style="color: #0d6efd;">選擇檔案</span></div>
+                                    <div class="file-types">已支援 TXT 每個檔案不超過16MB。</div>
+                                    <input class="form-control visually-hidden" type="file" id="file-input" accept=".txt,.markdown,.mdx,.pdf,.html,.xlsx,.xls,.doc,.docx,.csv,.eml,.msg,.pptx,.xml,.epub,.ppt,.md,.htm">
+                                </div>
+                                
+                                <!-- 文件預覽區域 -->
+                                <div id="selected-file-container" style="display: none;" class="mt-3">
+                                    <div id="selected-file-item" class="upload-file-item">
+                                        <div class="file-info">
+                                            <div class="file-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-file-text" viewBox="0 0 16 16">
+                                                    <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5z"/>
+                                                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="file-details">
+                                                <div id="selected-file-name" class="file-name"></div>
+                                                <div id="selected-file-meta" class="file-meta"></div>
+                                            </div>
+                                        </div>
+                                        <button type="button" id="delete-selected-file" class="delete-file-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">上傳</button>
+                        </form>
+                        <div id="upload-status" class="mt-2"></div>
+                        
+                        <!-- 添加進度條 -->
+                        <div id="embedding-progress-container" class="mt-3" style="display: none;">
+                            <h6>嵌入向量處理進度：<span id="progress-text">0%</span></h6>
+                            <div class="progress">
+                                <div id="embedding-progress" class="progress-bar progress-bar-striped progress-bar-animated bg-success" 
+                                     role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                </div>
+                            </div>
+                            <div class="form-text mt-1" id="processing-file"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 文件選擇 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5>文件管理</h5>
+                        <button id="refresh-files" class="btn btn-sm btn-outline-secondary float-end">刷新</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label">當前啟用文件：</label>
+                            <div id="active-file-display" class="form-text"></div>
+                        </div>
+                        <div id="file-list-container" class="mb-3">
+                            <!-- 文件列表會在這裡動態生成 -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 參數設置 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5>參數設置</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="top-k" class="form-label">Top K 值</label>
+                            <input type="number" class="form-control" id="top-k" min="1" max="10">
+                            <div class="form-text">返回最相關的K個結果</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="threshold" class="form-label">相似度閾值</label>
+                            <input type="number" class="form-control" id="threshold" step="0.1" min="0" max="1">
+                            <div class="form-text">僅返回高於此相似度的結果</div>
+                        </div>
+                        <button id="save-settings" class="btn btn-primary">保存設置</button>
+                    </div>
+                </div>
+                
+                <!-- Token管理 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5>API Token管理</h5>
+                        <button id="refresh-tokens" class="btn btn-sm btn-outline-secondary float-end">刷新</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="token-description" class="form-label">Token描述</label>
+                            <input type="text" class="form-control" id="token-description" placeholder="請輸入Token描述...">
+                        </div>
+                        <button id="generate-token" class="btn btn-primary mb-3">生成查詢API Token</button>
+                        
+                        <div id="tokens-container" class="mt-3">
+                            <!-- Token列表會在這裡動態生成 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 新生成的Token模態框 -->
+    <div class="modal fade" id="tokenModal" tabindex="-1" aria-labelledby="tokenModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tokenModalLabel">新生成的API Token</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning">請保存此Token，它只會顯示一次！</div>
+                    <div class="mb-3">
+                        <label for="new-token" class="form-label">Token:</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="new-token" readonly>
+                            <button class="btn btn-outline-secondary" type="button" id="copy-token">複製</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 定義預設的token
+        const DEFAULT_TOKEN = "ragapp-default123";
+        
+        // 對所有AJAX請求添加Authorization頭部
+        $.ajaxSetup({
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + DEFAULT_TOKEN);
+            }
+        });
+        
+        $(document).ready(function() {
+            // 標記初始載入
+            window.isInitialLoad = true;
+            
+            // 載入設置
+            loadSettings();
+            
+            // 載入文件列表
+            loadFiles();
+            
+            // 載入token列表
+            loadTokens();
+            
+            // 發送問題
+            $('#send-btn').click(function() {
+                sendQuery();
+            });
+            
+            $('#query-input').keypress(function(e) {
+                if(e.which == 13) {
+                    sendQuery();
+                }
+            });
+            
+            // 拖放上傳文件功能
+            const dropArea = document.getElementById('upload-drop-area');
+            const fileInput = document.getElementById('file-input');
+            
+            // 點擊拖放區域觸發文件選擇
+            dropArea.addEventListener('click', () => {
+                fileInput.click();
+            });
+            
+            // 拖放相關事件
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropArea.addEventListener(eventName, preventDefaults, false);
+            });
+            
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropArea.addEventListener(eventName, highlight, false);
+            });
+            
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropArea.addEventListener(eventName, unhighlight, false);
+            });
+            
+            function highlight() {
+                dropArea.classList.add('highlight');
+            }
+            
+            function unhighlight() {
+                dropArea.classList.remove('highlight');
+            }
+            
+            dropArea.addEventListener('drop', handleDrop, false);
+            
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                fileInput.files = files;
+                // 顯示拖放的文件信息
+                if (files.length > 0) {
+                    displaySelectedFile(files[0]);
+                }
+            }
+            
+            // 文件選擇變更事件
+            fileInput.addEventListener('change', () => {
+                if (fileInput.files.length > 0) {
+                    // 顯示選擇的文件信息
+                    displaySelectedFile(fileInput.files[0]);
+                }
+            });
+            
+            // 刪除選擇的文件
+            $('#delete-selected-file').click(function() {
+                clearSelectedFile();
+            });
+            
+            // 顯示選擇的文件信息
+            function displaySelectedFile(file) {
+                const fileName = file.name;
+                const fileSize = formatFileSize(file.size);
+                const fileExt = fileName.split('.').pop().toUpperCase();
+                
+                $('#selected-file-name').text(fileName);
+                $('#selected-file-meta').text(`${fileExt} · ${fileSize}`);
+                $('#selected-file-container').show();
+                $('#upload-drop-area').hide(); // 隱藏拖放區域
+            }
+            
+            // 清除選擇的文件
+            function clearSelectedFile() {
+                $('#file-input').val('');
+                $('#selected-file-container').hide();
+                $('#upload-drop-area').show(); // 顯示拖放區域
+            }
+            
+            // 格式化文件大小
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + sizes[i];
+            }
+            
+            // 上傳文件
+            $('#upload-form').submit(function(e) {
+                e.preventDefault();
+                uploadFile();
+            });
+            
+            // 刷新文件列表
+            $('#refresh-files').click(function() {
+                window.isRefreshing = true;
+                loadFiles();
+            });
+            
+            // 保存設置
+            $('#save-settings').click(function() {
+                saveSettings();
+            });
+            
+            // 生成新API Token
+            $('#generate-token').click(function() {
+                generateToken();
+            });
+            
+            // 刷新Token列表
+            $('#refresh-tokens').click(function() {
+                loadTokens();
+            });
+            
+            // 複製新Token
+            $('#copy-token').click(function() {
+                const tokenInput = document.getElementById('new-token');
+                tokenInput.select();
+                document.execCommand('copy');
+                $(this).text('已複製!');
+                setTimeout(() => {
+                    $(this).text('複製');
+                }, 2000);
+            });
+        });
+        
+        function loadSettings() {
+            $.ajax({
+                url: '/api/settings',
+                method: 'GET',
+                success: function(data) {
+                    $('#top-k').val(data.top_k);
+                    $('#threshold').val(data.score_threshold);
+                    $('#active-file-display').text(data.active_file);
+                },
+                error: function(xhr) {
+                    alert('載入設置失敗: ' + xhr.responseJSON?.error || xhr.statusText);
+                }
+            });
+        }
+        
+        function loadFiles() {
+            $.ajax({
+                url: '/api/files/list',
+                method: 'GET',
+                success: function(data) {
+                    renderFiles(data.data_files, data.active_file);
+                    // 只在初始載入或刷新時更新啟用文件顯示，不是在上傳後調用時更新
+                    if(window.isInitialLoad || window.isRefreshing) {
+                        $('#active-file-display').text(data.active_file);
+                        window.isInitialLoad = false;
+                        window.isRefreshing = false;
+                    }
+                },
+                error: function(xhr) {
+                    alert('載入文件列表失敗: ' + xhr.responseJSON?.error || xhr.statusText);
+                }
+            });
+        }
+        
+        function renderFiles(files, activeFile) {
+            const container = $('#file-list-container');
+            container.empty();
+            
+            if (files.length === 0) {
+                container.html('<div class="alert alert-info">目前沒有上傳的文件</div>');
+                return;
+            }
+            
+            // 獲取activeFile的檔案名（不含路徑）
+            let activeFileName = '';
+            if (activeFile) {
+                const parts = activeFile.split(/[\/\\]/);
+                activeFileName = parts[parts.length - 1];
+            }
+            
+            files.forEach(function(file) {
+                const isActive = file === activeFileName;
+                const filePath = './data/' + file;
+                
+                const fileItem = $(`
+                    <div class="file-item ${isActive ? 'active' : ''}" data-file="${filePath}">
+                        <div class="file-name">${file}</div>
+                        <div class="file-actions">
+                            <button class="btn btn-sm btn-primary activate-file" ${isActive ? 'disabled' : ''}>activate</button>
+                            <button class="btn btn-sm btn-danger delete-file" ${isActive ? 'disabled' : ''}>delete</button>
+                        </div>
+                    </div>
+                `);
+                
+                container.append(fileItem);
+            });
+            
+            // 綁定激活按鈕事件
+            $('.activate-file').click(function() {
+                const filePath = $(this).closest('.file-item').data('file');
+                activateFile(filePath);
+            });
+            
+            // 綁定刪除按鈕事件
+            $('.delete-file').click(function() {
+                const filePath = $(this).closest('.file-item').data('file');
+                const fileName = $(this).closest('.file-item').find('.file-name').text();
+                if (confirm(`確定要刪除文件 ${fileName} 嗎？刪除後無法恢復。`)) {
+                    deleteFile(filePath);
+                }
+            });
+        }
+        
+        function activateFile(filePath) {
+            $.ajax({
+                url: '/api/files/active',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ file_path: filePath }),
+                success: function(data) {
+                    // 重新加載文件列表以更新UI
+                    window.isRefreshing = true;
+                    loadFiles();
+                    // 更新顯示
+                    $('#active-file-display').text(filePath);
+                },
+                error: function(xhr) {
+                    alert('激活文件失敗: ' + xhr.responseJSON?.error || xhr.statusText);
+                }
+            });
+        }
+        
+        function deleteFile(filePath) {
+            $.ajax({
+                url: '/api/files/delete',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ file_path: filePath }),
+                success: function(data) {
+                    // 重新加載文件列表
+                    window.isRefreshing = true;
+                    loadFiles();
+                },
+                error: function(xhr) {
+                    alert('刪除文件失敗: ' + xhr.responseJSON?.error || xhr.statusText);
+                }
+            });
+        }
+        
+        function sendQuery() {
+            const query = $('#query-input').val().trim();
+            if (!query) return;
+            
+            // 顯示用戶問題
+            $('#chat-container').append(
+                $('<div class="user-message"></div>').text(query)
+            );
+            
+            // 清空輸入框
+            $('#query-input').val('');
+            
+            // 滾動到底部
+            $('#chat-container').scrollTop($('#chat-container')[0].scrollHeight);
+            
+            // 顯示加載中
+            const loadingDiv = $('<div class="bot-message"></div>').html('<div class="loader"></div> 思考中...');
+            $('#chat-container').append(loadingDiv);
+            $('#chat-container').scrollTop($('#chat-container')[0].scrollHeight);
+            
+            // 發送請求
+            $.ajax({
+                url: '/api/query',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ query: query }),
+                success: function(data) {
+                    // 移除加載中提示
+                    loadingDiv.remove();
+                    
+                    // 顯示回覆
+                    $('#chat-container').append(
+                        $('<div class="bot-message"></div>').text(data.response)
+                    );
+                    
+                    // 滾動到底部
+                    $('#chat-container').scrollTop($('#chat-container')[0].scrollHeight);
+                },
+                error: function(xhr) {
+                    // 移除加載中提示
+                    loadingDiv.remove();
+                    
+                    // 顯示錯誤
+                    $('#chat-container').append(
+                        $('<div class="bot-message text-danger"></div>').text('錯誤: ' + (xhr.responseJSON?.error || xhr.statusText))
+                    );
+                    
+                    // 滾動到底部
+                    $('#chat-container').scrollTop($('#chat-container')[0].scrollHeight);
+                }
+            });
+        }
+        
+        function uploadFile() {
+            const fileInput = $('#file-input')[0];
+            if (fileInput.files.length === 0) {
+                alert('請選擇文件');
+                return;
+            }
+            
+            const file = fileInput.files[0];
+            if (!file.name.toLowerCase().endsWith('.txt')) {
+                alert('僅支持.txt文件');
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            // 顯示上傳狀態
+            $('#upload-status').html('<div class="alert alert-info">上傳中...</div>');
+            
+            $.ajax({
+                url: '/api/upload',
+                method: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(data) {
+                    $('#upload-status').html('<div class="alert alert-success">文件上傳成功，正在處理嵌入向量...</div>');
+                    // 顯示進度條
+                    $('#embedding-progress-container').show();
+                    $('#upload-status').show();
+                    $('#processing-file').text(`處理文件: ${data.filename}`);
+                    // 開始輪詢進度
+                    startProgressPolling();
+                    // 重新加載文件列表
+                    loadFiles();
+                    // 清除選擇的文件
+                    clearSelectedFile();
+                },
+                error: function(xhr) {
+                    $('#upload-status').html('<div class="alert alert-danger">上傳失敗: ' + (xhr.responseJSON?.error || xhr.statusText) + '</div>');
+                    // 清除選擇的文件
+                    clearSelectedFile();
+                }
+            });
+        }
+        
+        // 添加進度輪詢函數
+        let progressInterval;
+
+        function startProgressPolling() {
+            // 清除任何現有的輪詢
+            if (progressInterval) {
+                clearInterval(progressInterval);
+            }
+            
+            // 每秒輪詢一次進度
+            progressInterval = setInterval(function() {
+                $.ajax({
+                    url: '/api/upload/progress',
+                    method: 'GET',
+                    success: function(data) {
+                        updateProgressBar(data.progress, data.file, data.in_progress);
+                        
+                        // 如果處理完成，停止輪詢
+                        if (data.progress >= 100 || !data.in_progress) {
+                            clearInterval(progressInterval);
+                            if (data.progress >= 100) {
+                                $('#upload-status').html('<div class="alert alert-success">處理完成</div>');
+                                $('#file-input').val('');
+                                $('#selected-file-container').hide();
+                                $('#upload-drop-area').show(); // 顯示拖放區域
+                                $('#embedding-progress-container').fadeOut(500);
+                                // 延遲10秒後隱藏進度條和處理完成的訊息
+                                setTimeout(function() {
+                                    $('#upload-status').fadeOut(500);
+                                }, 5000);
+                            }
+                        }
+                    },
+                    error: function() {
+                        clearInterval(progressInterval);
+                        $('#upload-status').html('<div class="alert alert-warning">無法獲取處理進度</div>');
+                    }
+                });
+            }, 1000);
+        }
+
+        function updateProgressBar(progress, filename, inProgress) {
+            // 更新進度條的寬度和文字
+            $('#embedding-progress').css('width', `${progress}%`).attr('aria-valuenow', progress);
+            $('#progress-text').text(`${Math.round(progress)}%`);
+            
+            if (filename) {
+                $('#processing-file').text(`處理文件: ${filename}`);
+            }
+            
+            // 如果處理完成，更新顯示
+            if (progress >= 100) {
+                $('#embedding-progress').removeClass('progress-bar-animated');
+            }
+            
+            // 如果不再處理中但進度不是100%，可能發生了錯誤
+            if (!inProgress && progress < 100) {
+                $('#upload-status').html('<div class="alert alert-warning">處理過程中斷</div>');
+                $('#embedding-progress').removeClass('bg-success').addClass('bg-warning');
+            }
+        }
+        
+        function saveSettings() {
+            const topK = parseInt($('#top-k').val());
+            const threshold = parseFloat($('#threshold').val());
+            
+            if (isNaN(topK) || topK < 1 || topK > 10) {
+                alert('Top K 必須是 1-10 之間的整數');
+                return;
+            }
+            
+            if (isNaN(threshold) || threshold < 0 || threshold > 1) {
+                alert('相似度閾值必須是 0-1 之間的數字');
+                return;
+            }
+            
+            // 更新 Top K
+            $.ajax({
+                url: '/api/settings/top_k',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ top_k: topK }),
+                error: function(xhr) {
+                    alert('設置 Top K 失敗: ' + xhr.responseJSON?.error || xhr.statusText);
+                }
+            });
+            
+            // 更新閾值
+            $.ajax({
+                url: '/api/settings/threshold',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ threshold: threshold }),
+                success: function() {
+                    alert('設置已保存');
+                },
+                error: function(xhr) {
+                    alert('設置閾值失敗: ' + xhr.responseJSON?.error || xhr.statusText);
+                }
+            });
+        }
+        
+        // Token管理相關函數
+        function loadTokens() {
+            $.ajax({
+                url: '/api/token/list',
+                method: 'GET',
+                success: function(data) {
+                    renderTokens(data.tokens);
+                },
+                error: function(xhr) {
+                    alert('載入Token列表失敗: ' + xhr.responseJSON?.error || xhr.statusText);
+                }
+            });
+        }
+        
+        function renderTokens(tokens) {
+            const container = $('#tokens-container');
+            container.empty();
+            
+            if (tokens.length === 0) {
+                container.html('<div class="alert alert-info">目前沒有已生成的API Token</div>');
+                return;
+            }
+            
+            tokens.forEach(function(tokenData) {
+                const createdDate = new Date(tokenData.created_at * 1000).toLocaleString();
+                const lastUsedDate = new Date(tokenData.last_used * 1000).toLocaleString();
+                
+                const tokenItem = `
+                    <div class="token-item" data-token="${tokenData.token}">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div>
+                                <span class="token-badge">查詢API</span>
+                                <strong>${tokenData.description}</strong>
+                            </div>
+                            <div>
+                                <button class="btn btn-sm btn-outline-danger revoke-token" data-token="${tokenData.token}">撤銷</button>
+                            </div>
+                        </div>
+                        <div class="token-text mb-2">${tokenData.token}</div>
+                        <div class="token-date">
+                            建立於: ${createdDate}<br>
+                            最後使用: ${lastUsedDate}
+                        </div>
+                    </div>
+                `;
+                
+                container.append(tokenItem);
+            });
+            
+            // 綁定撤銷按鈕事件
+            $('.revoke-token').click(function() {
+                const token = $(this).data('token');
+                if (confirm('確定要撤銷此Token嗎？撤銷後將無法復原。')) {
+                    revokeToken(token);
+                }
+            });
+        }
+        
+        function generateToken() {
+            const description = $('#token-description').val().trim() || '查詢API Token';
+            
+            $.ajax({
+                url: '/api/token/generate',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ description: description }),
+                success: function(data) {
+                    // 顯示新生成的token
+                    $('#new-token').val(data.token);
+                    
+                    // 顯示模態框
+                    const tokenModal = new bootstrap.Modal(document.getElementById('tokenModal'));
+                    tokenModal.show();
+                    
+                    // 清空描述輸入
+                    $('#token-description').val('');
+                    
+                    // 重新載入token列表
+                    loadTokens();
+                },
+                error: function(xhr) {
+                    alert('生成Token失敗: ' + xhr.responseJSON?.error || xhr.statusText);
+                }
+            });
+        }
+        
+        function revokeToken(token) {
+            $.ajax({
+                url: '/api/token/revoke',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ token: token }),
+                success: function() {
+                    // 從UI中移除被撤銷的token
+                    $(`[data-token="${token}"]`).fadeOut(300, function() {
+                        $(this).remove();
+                        // 如果沒有token了，顯示提示
+                        if ($('.token-item').length === 0) {
+                            $('#tokens-container').html('<div class="alert alert-info">目前沒有已生成的API Token</div>');
+                        }
+                    });
+                },
+                error: function(xhr) {
+                    alert('撤銷Token失敗: ' + xhr.responseJSON?.error || xhr.statusText);
+                }
+            });
+        }
+    </script>
+</body>
+</html> 

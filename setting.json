@@ -1,0 +1,5 @@
+{
+    "top_k": 3,
+    "score_threshold": 0.85,
+    "activate_file": "./data/常見問答_result.txt"
+}
