@@ -84,13 +84,16 @@ def normalize(vector):
         return vector
     return vector / norm
 
+with open("openai_token.json", "r", encoding="utf-8") as f:
+    config = json.load(f)
+
 # 初始化 Azure OpenAI 嵌入模型 (請確認參數皆正確)
 embed_model = AzureOpenAIEmbedding(
-    model="xxx",
-    deployment_name="xxx",
-    api_key="xxxxx",
-    azure_endpoint="https://xxxx.openai.azure.com/",
-    api_version="xxx",
+    model=config["embedding_model_config"]["model"],
+    deployment_name=config["embedding_model_config"]["deployment_name"],
+    api_key=config["embedding_model_config"]["api_key"],
+    azure_endpoint=config["embedding_model_config"]["azure_endpoint"],
+    api_version=config["embedding_model_config"]["api_version"],
 )
 
 def upload_file(input_file_path):

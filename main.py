@@ -23,11 +23,15 @@ logging.basicConfig(
     ]
 )
 
+# 讀取openai_token.json
+with open("openai_token.json", "r", encoding="utf-8") as f:
+    config = json.load(f)
+
 # Azure OpenAI 設置
-azure_endpoint = "https://xxxx.openai.azure.com/"
-api_key = "xxxxx"
-deployment_name = "xxx" 
-api_version = "xxx"
+azure_endpoint = config["llm_model_config"]["azure_endpoint"]
+api_key = config["llm_model_config"]["api_key"]
+deployment_name = config["llm_model_config"]["deployment_name"]
+api_version = config["llm_model_config"]["api_version"]
 prompt_dir = "./"
 
 logging.info(f"Azure OpenAI 配置：endpoint={azure_endpoint}, model={deployment_name}, version={api_version}")
